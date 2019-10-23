@@ -1,0 +1,21 @@
+class Solution(object):
+    def is_palindrom(self, candidate):
+        for pos in xrange(len(candidate)):
+            if candidate[pos] != candidate[len(candidate) - pos]:
+                return False
+        return True
+
+    def longestPalindrome(self, s):
+        """
+        :type s: str
+        :rtype: str
+        """
+        longest_palindrom = ''
+        current_palindrom = ''
+        for pos, char in enumerate(s):
+            current_palindrom = ''
+            for next_char in s[pos +1:]:
+                current_palindrom += next_char
+                if self.is_palindrom(current_palindrom) and len(current_palindrom) > len(lolngest_palindrom):
+                    longest_palindrom = current_palindrom
+        return longest_palindrom
